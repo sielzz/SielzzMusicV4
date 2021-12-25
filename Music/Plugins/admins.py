@@ -87,7 +87,7 @@ async def member_permissions(chat_id: int, user_id: int):
     return perms
 from Music.MusicUtilities.helpers.administrator import adminsOnly
 
-@app.on_message(filters.command("cleandb"))
+@app.on_message(filters.command("reload"))
 async def stop_cmd(_, message): 
     chat_id = message.chat.id
     try:
@@ -99,7 +99,7 @@ async def stop_cmd(_, message):
         await music.pytgcalls.leave_group_call(chat_id)
     except:
         pass   
-    await message.reply_text("Menghapus Databae, Antrian, Log, File Mentah, Unduhan.")
+    await message.reply_text("✅ daftar atmin kontol jelek uda di kocok.")
     
 @app.on_message(filters.command(["pause", f"pause@{BOT_USERNAME}", "ps"]))
 async def pause_cmd(_, message): 
@@ -155,9 +155,9 @@ async def stop_cmd(_, message):
             pass                        
         await remove_active_chat(chat_id)
         await music.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text(f"**🎧 Obrolan Suara Berakhir/Dihentikan {checking}!**") 
+        await message.reply_text(f"**🎧 goblok dari tadi gua uda minta istirahat kan yatim anjing {checking}!**") 
     else:
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")
+        return await message.reply_text("apa yang mau di matiin?umur bapak lu?")
     
 @app.on_message(filters.command(["skip", f"skip@{BOT_USERNAME}", "sk"]))
 async def stop_cmd(_, message): 
@@ -171,12 +171,12 @@ async def stop_cmd(_, message):
     chat_id = message.chat.id
     chat_title = message.chat.title
     if not await is_active_chat(chat_id):
-        await message.reply_text("Tidak ada music yang diputar")
+        await message.reply_text("apa yang mau di skip?nyawa bapak lu?")
     else:
         task_done(chat_id)
         if is_empty(chat_id):
             await remove_active_chat(chat_id)
-            await message.reply_text("Tidak ada lagi musik di __Queue__ \n\nMeninggalkan Obrolan Suara")
+            await message.reply_text("dahlah gua cape gada musik di __Queue__ \n\nMeninggalkan Obrolan Suara")
             await music.pytgcalls.leave_group_call(chat_id)
             return  
         else:
