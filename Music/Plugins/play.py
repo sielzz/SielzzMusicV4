@@ -249,7 +249,7 @@ Unban terlebih dahulu untuk menggunakan
         what = "Audio Searched"
         await LOG_CHAT(message, what)
         mystic = await message.reply_text(
-            f"**🔄 Memproses Audio Yang Diberikan Oleh {username}**"
+            f"**🔄 cari kuburan bapak nya si {username}**"
         )
         if audio.file_size > 157286400:
             await mystic.edit_text("Ukuran File Audio Harus Kurang dari 150 mb")
@@ -408,7 +408,7 @@ Unban terlebih dahulu untuk menggunakan
         what = "Query Given"
         await LOG_CHAT(message, what)
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Pencarian**")
+        mystic = await message.reply_text("**🔎 cari kuburan bapak lu**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
